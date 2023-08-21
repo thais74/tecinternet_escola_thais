@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Ago-2023 às 13:24
+-- Tempo de geração: 21-Ago-2023 às 15:50
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -38,6 +38,23 @@ CREATE TABLE `alunos` (
   `curso_id` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `alunos`
+--
+
+INSERT INTO `alunos` (`id`, `nome`, `data_nascimento`, `primeiranota`, `segundanota`, `curso_id`) VALUES
+(5, 'Thais', '2005-01-20', 10.00, 9.00, 5),
+(60, 'Alex', '2002-05-28', 9.00, 2.00, 2),
+(61, 'Bianca', '2003-01-15', 7.00, 8.00, 1),
+(62, 'Carlos', '2002-08-03', 5.00, 6.00, 3),
+(63, 'Daniela', '2001-11-22', 8.00, 9.00, 2),
+(64, 'Eduardo', '2003-03-10', 6.00, 7.00, 4),
+(65, 'Fernanda', '2002-06-18', 9.00, 8.00, 5),
+(66, 'Gabriel', '2001-09-25', 7.00, 6.00, 4),
+(67, 'Helena', '2000-04-07', 8.00, 9.00, 5),
+(68, 'Isabela', '1997-07-14', 6.00, 7.00, 3),
+(69, 'Vanessa', '2002-02-28', 10.00, 10.00, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +68,17 @@ CREATE TABLE `cursos` (
   `id_professor` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `cursos`
+--
+
+INSERT INTO `cursos` (`id`, `titulo`, `carga_horaria`, `id_professor`) VALUES
+(1, 'Front-End', 40, 5),
+(2, 'Back-End', 80, 4),
+(3, 'UX/UI Design', 30, 3),
+(4, 'Figma', 10, 2),
+(5, 'Redes de Computadores', 100, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +91,17 @@ CREATE TABLE `professores` (
   `area_atuacao` text NOT NULL,
   `id_curso` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `professores`
+--
+
+INSERT INTO `professores` (`id`, `nome`, `area_atuacao`, `id_curso`) VALUES
+(1, 'Jon Oliva', 'Infra', 5),
+(2, 'Lemmy Kilmister', 'Design', 4),
+(3, 'Neil Peart', 'Design', 3),
+(4, 'Ozzy Osbourne', 'Desenvolvimento', 2),
+(5, 'David Gilmour', 'Desenvolvimento', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -97,19 +136,19 @@ ALTER TABLE `professores`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de tabela `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `professores`
 --
 ALTER TABLE `professores`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para despejos de tabelas
@@ -119,8 +158,7 @@ ALTER TABLE `professores`
 -- Limitadores para a tabela `alunos`
 --
 ALTER TABLE `alunos`
-  ADD CONSTRAINT `fk_alunos_cursos` FOREIGN KEY (`curso_id`) REFERENCES `alunos` (`id`),
-  ADD CONSTRAINT `fk_cursos_alunos` FOREIGN KEY (`curso_id`) REFERENCES `alunos` (`id`);
+  ADD CONSTRAINT `fk_alunos_cursos` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`);
 
 --
 -- Limitadores para a tabela `cursos`
