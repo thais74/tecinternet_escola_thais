@@ -1,0 +1,1 @@
+# tecinternet_escola_thais
