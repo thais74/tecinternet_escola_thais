@@ -2,4 +2,4 @@
 
 ### Exercício
 
-!["Banco de dados de uma escola"(exercicio-escola.png)]
+!["Banco de dados de uma escola"](exercicio-escola.png)
