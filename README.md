@@ -145,7 +145,7 @@ GROUP BY alunos.nome;
 SELECT
     alunos.nome AS Aluno,
     alunos.data_nascimento as 'Data de Nascimento',
-    DATEDIFF(CURRENT_DATE, data_nascimento) / 365 AS idade
+    FLOOR(DATEDIFF(CURRENT_DATE, data_nascimento) / 365) AS idade
 FROM alunos;
 ```
 ---
