@@ -130,8 +130,10 @@ DELETE FROM alunos WHERE id = 62 AND curso_id = 3;
 
 13. Faça uma consulta que mostre a lista de alunos atualizada e o título dos cursos que fazem, classificados pelo nome do aluno.
 ```sql
-SELECT alunos.nome as Alunos.
+SELECT alunos.nome as Alunos,
 cursos.titulo as Cursos
-
+FROM alunos INNER JOIN cursos
+ON alunos.curso_id = cursos.id
+GROUP BY alunos.nome;
 ```
 ---
