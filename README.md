@@ -137,3 +137,51 @@ ON alunos.curso_id = cursos.id
 GROUP BY alunos.nome;
 ```
 ---
+
+### DESAFIOS
+1. Criar uma consulta que calcule a idade do aluno
+
+```sql 
+SELECT
+    alunos.nome AS Aluno,
+    alunos.data_nascimento as 'Data de Nascimento',
+    DATEDIFF(CURRENT_DATE, data_nascimento) / 365 AS idade
+FROM alunos;
+```
+---
+
+
+
+2. Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média maior ou igual a 7.
+SELECT 
+```sql
+SELECT 
+    alunos.nome as Alunos, 
+    ROUND((primeiranota + segundanota) / 2, 2) AS Media
+FROM alunos
+WHERE (primeiranota + segundanota) / 2 >= 7;
+```
+---
+
+
+
+3. Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média menor que 7.
+```sql
+SELECT 
+    alunos.nome as Alunos, 
+    ROUND((primeiranota + segundanota) / 2, 2) AS Media
+FROM alunos
+WHERE (primeiranota + segundanota) / 2 <= 7;
+```
+---
+
+
+
+4. Criar uma consulta que mostre a quantidade de alunos com média maior ou igual a 7.
+```sql
+SELECT 
+    COUNT(*) AS 'Alunos Aprovados' 
+FROM alunos
+WHERE (primeiranota + segundanota) / 2 >= 7;
+```
+---
