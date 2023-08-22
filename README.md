@@ -180,7 +180,7 @@ WHERE (primeiranota + segundanota) / 2 <= 7;
 4. Criar uma consulta que mostre a quantidade de alunos com média maior ou igual a 7.
 ```sql
 SELECT 
-    COUNT(*) AS 'Alunos Aprovados' 
+    COUNT(*) AS 'Alunos Aprovados'                                                              
 FROM alunos
 WHERE (primeiranota + segundanota) / 2 >= 7;
 ```
